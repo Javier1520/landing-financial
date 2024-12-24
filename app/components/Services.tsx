@@ -1,7 +1,8 @@
 import React from 'react';
 import { LineChart, Wallet, TrendingUp, Shield, BookOpen, Users } from 'lucide-react';
+import { Service, ComponentProps } from '../types';
 
-const services = [
+const services: Service[] = [
   {
     name: 'Market Analysis',
     description: 'In-depth analysis of market trends, opportunities, and potential risks in both traditional and crypto markets.',
@@ -34,7 +35,7 @@ const services = [
   },
 ];
 
-export default function Services() {
+export default function Services({ children }: ComponentProps): React.ReactNode {
   return (
     <section id="services" className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

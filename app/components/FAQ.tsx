@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { FAQ as FAQType, ComponentProps } from '../types';
 
-const faqs = [
+const faqs: FAQType[] = [
   {
     question: 'What types of investment services do you offer?',
     answer: 'We offer a comprehensive range of investment services including market analysis, portfolio management, cryptocurrency consulting, risk assessment, and personalized investment strategies. Our services are tailored to both beginners and experienced investors.',
@@ -30,10 +31,10 @@ const faqs = [
   },
 ];
 
-export default function FAQ() {
+export default function FAQ({ children }: ComponentProps): React.ReactNode {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index: number) => {
+  const toggleFAQ = (index: number): void => {
     setOpenIndex(openIndex === index ? null : index);
   };
 

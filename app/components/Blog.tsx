@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { Calendar, Clock, Tag } from 'lucide-react';
+import { BlogPost, ComponentProps } from '../types';
 
-const posts = [
+const posts: BlogPost[] = [
   {
     id: 1,
     title: 'Understanding Cryptocurrency Market Trends',
@@ -32,7 +33,7 @@ const posts = [
   },
 ];
 
-const categories = [
+const categories: string[] = [
   'Cryptocurrency',
   'Investment Strategy',
   'Market Analysis',
@@ -41,7 +42,7 @@ const categories = [
   'Financial Planning',
 ];
 
-export default function Blog() {
+export default function Blog({ children }: ComponentProps): React.ReactNode {
   return (
     <section id="blog" className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

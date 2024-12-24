@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { NavigationItem, SocialLink, ComponentProps } from '../types';
 
 const navigation = {
   main: [
@@ -9,12 +10,12 @@ const navigation = {
     { name: 'Services', href: '#services' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
-  ],
+  ] as NavigationItem[],
   legal: [
     { name: 'Privacy Policy', href: '#' },
     { name: 'Terms of Service', href: '#' },
     { name: 'Cookie Policy', href: '#' },
-  ],
+  ] as NavigationItem[],
   social: [
     {
       name: 'Facebook',
@@ -36,10 +37,10 @@ const navigation = {
       href: '#',
       icon: Linkedin,
     },
-  ],
+  ] as SocialLink[],
 };
 
-export default function Footer() {
+export default function Footer({ children }: ComponentProps): React.ReactNode {
   return (
     <footer className="bg-gray-900">
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">

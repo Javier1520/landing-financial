@@ -1,25 +1,28 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { FormData, ComponentProps } from '../types';
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+const initialFormState: FormData = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function Contact({ children }: ComponentProps): React.ReactNode {
+  const [formData, setFormData] = useState<FormData>(initialFormState);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     // Here you would typically handle the form submission
     console.log('Form submitted:', formData);
     // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData(initialFormState);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };

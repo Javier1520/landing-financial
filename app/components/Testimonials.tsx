@@ -1,7 +1,8 @@
 import React from 'react';
 import { Star } from 'lucide-react';
+import { Testimonial, ComponentProps } from '../types';
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     name: 'Sarah Johnson',
     role: 'Retail Investor',
@@ -25,7 +26,7 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+export default function Testimonials({ children }: ComponentProps): React.ReactNode {
   return (
     <section id="testimonials" className="py-24 bg-gray-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
