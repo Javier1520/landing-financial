@@ -1,26 +1,32 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "/" },
+  { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Blog", href: "#blog" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="fixed w-full bg-white/95  z-50 shadow-sm">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 text-2xl font-bold text-blue-600">
+          <Link
+            href="/"
+            className="-m-1.5 p-1.5 text-2xl font-bold text-blue-600"
+          >
             FinAdvisor
           </Link>
         </div>
@@ -55,11 +61,28 @@ export default function Navbar() {
         </div>
       </nav>
       {/* Mobile menu */}
-      <div className={`lg:hidden ${mobileMenuOpen ? 'fixed inset-0 z-50' : 'hidden'}`}>
-        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" />
-        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <div
+        className={`lg:hidden ${
+          mobileMenuOpen ? "fixed inset-0 z-50" : "hidden"
+        }`}
+      >
+        {/* Overlay */}
+        <div
+          className="fixed inset-0 min-h-screen bg-black/70 backdrop-blur-sm"
+          aria-hidden="true"
+        />
+        {/* Menu Content */}
+        <div
+          className={`fixed inset-y-0 right-0 ${
+            mobileMenuOpen ? "w-3/5 sm:w-2/5" : "hidden"
+          } z-50 flex flex-col bg-white/95 px-6 py-6 min-h-screen`}
+        >
+          {/* Header */}
           <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5 text-2xl font-bold text-blue-600">
+            <Link
+              href="/"
+              className="-m-1.5 p-1.5 text-2xl font-bold text-blue-600"
+            >
               FinAdvisor
             </Link>
             <button
@@ -71,30 +94,28 @@ export default function Navbar() {
               <X className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-              <div className="py-6">
-                <Link
-                  href="#contact"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
+          {/* Navigation Links */}
+          <div className="mt-6 flex-1 flex flex-col space-y-4 overflow-y-auto">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="block text-lg font-semibold text-gray-900 hover:bg-gray-100 p-3 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          {/* Call to Action */}
+          <div className="mt-6">
+            <Link
+              href="#contact"
+              className="block w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-500 transition"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Get Started
+            </Link>
           </div>
         </div>
       </div>

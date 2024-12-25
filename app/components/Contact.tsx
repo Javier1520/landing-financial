@@ -1,36 +1,43 @@
-'use client';
+"use client";
 
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { FormData, ComponentProps } from '../types';
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { FormData } from "../types";
 
 const initialFormState: FormData = {
-  name: '',
-  email: '',
-  phone: '',
-  message: '',
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
 };
 
-export default function Contact({ children }: ComponentProps): React.ReactNode {
+export default function Contact(): React.ReactNode {
   const [formData, setFormData] = useState<FormData>(initialFormState);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     // Here you would typically handle the form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
     setFormData(initialFormState);
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
-    <section id="contact" className="relative isolate bg-white py-24 px-6 sm:py-32 lg:px-8">
+    <section
+      id="contact"
+      className="relative isolate bg-white py-24 px-6 sm:py-32 lg:px-8"
+    >
       <div className="mx-auto max-w-xl lg:max-w-4xl">
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center">Contact Us</h2>
+        <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center">
+          Contact Us
+        </h2>
         <p className="mt-2 text-lg leading-8 text-gray-600 text-center">
           Get in touch with our expert team for personalized financial guidance.
         </p>
@@ -40,7 +47,8 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
           <div>
             <h3 className="text-2xl font-bold text-gray-900">Get in Touch</h3>
             <p className="mt-4 text-gray-600">
-              Have questions about our services? We're here to help. Contact us through any of these channels.
+              Have questions about our services? We&apos;re here to help.
+              Contact us through any of these channels.
             </p>
 
             <dl className="mt-8 space-y-6">
@@ -50,7 +58,10 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
                 </dt>
                 <dd>
                   <p className="text-sm font-semibold text-gray-900">Email</p>
-                  <a href="mailto:contact@finadvisor.com" className="text-gray-600 hover:text-blue-600">
+                  <a
+                    href="mailto:contact@finadvisor.com"
+                    className="text-gray-600 hover:text-blue-600"
+                  >
                     contact@finadvisor.com
                   </a>
                 </dd>
@@ -62,7 +73,10 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
                 </dt>
                 <dd>
                   <p className="text-sm font-semibold text-gray-900">Phone</p>
-                  <a href="tel:+1234567890" className="text-gray-600 hover:text-blue-600">
+                  <a
+                    href="tel:+1234567890"
+                    className="text-gray-600 hover:text-blue-600"
+                  >
                     +1 (234) 567-890
                   </a>
                 </dd>
@@ -70,13 +84,18 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
 
               <div className="flex gap-x-4">
                 <dt>
-                  <MapPin className="h-7 w-6 text-blue-600" aria-hidden="true" />
+                  <MapPin
+                    className="h-7 w-6 text-blue-600"
+                    aria-hidden="true"
+                  />
                 </dt>
                 <dd>
                   <p className="text-sm font-semibold text-gray-900">Office</p>
                   <p className="text-gray-600">
-                    123 Financial District<br />
-                    New York, NY 10004<br />
+                    123 Financial District
+                    <br />
+                    New York, NY 10004
+                    <br />
                     United States
                   </p>
                 </dd>
@@ -87,7 +106,10 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
+              <label
+                htmlFor="name"
+                className="block text-sm font-semibold leading-6 text-gray-900"
+              >
                 Name
               </label>
               <input
@@ -102,7 +124,10 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold leading-6 text-gray-900"
+              >
                 Email
               </label>
               <input
@@ -117,7 +142,10 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-semibold leading-6 text-gray-900">
+              <label
+                htmlFor="phone"
+                className="block text-sm font-semibold leading-6 text-gray-900"
+              >
                 Phone
               </label>
               <input
@@ -131,7 +159,10 @@ export default function Contact({ children }: ComponentProps): React.ReactNode {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+              <label
+                htmlFor="message"
+                className="block text-sm font-semibold leading-6 text-gray-900"
+              >
                 Message
               </label>
               <textarea

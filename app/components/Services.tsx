@@ -1,51 +1,67 @@
-import React from 'react';
-import { LineChart, Wallet, TrendingUp, Shield, BookOpen, Users } from 'lucide-react';
-import { Service, ComponentProps } from '../types';
+import React from "react";
+import {
+  LineChart,
+  Wallet,
+  TrendingUp,
+  Shield,
+  BookOpen,
+  Users,
+} from "lucide-react";
+import { Service } from "../types";
 
 const services: Service[] = [
   {
-    name: 'Market Analysis',
-    description: 'In-depth analysis of market trends, opportunities, and potential risks in both traditional and crypto markets.',
+    name: "Market Analysis",
+    description:
+      "In-depth analysis of market trends, opportunities, and potential risks in both traditional and crypto markets.",
     icon: LineChart,
   },
   {
-    name: 'Portfolio Management',
-    description: 'Personalized portfolio strategies tailored to your risk tolerance and investment goals.',
+    name: "Portfolio Management",
+    description:
+      "Personalized portfolio strategies tailored to your risk tolerance and investment goals.",
     icon: Wallet,
   },
   {
-    name: 'Trading Strategies',
-    description: 'Development of custom trading strategies for different market conditions and asset classes.',
+    name: "Trading Strategies",
+    description:
+      "Development of custom trading strategies for different market conditions and asset classes.",
     icon: TrendingUp,
   },
   {
-    name: 'Risk Management',
-    description: 'Comprehensive risk assessment and management strategies to protect your investments.',
+    name: "Risk Management",
+    description:
+      "Comprehensive risk assessment and management strategies to protect your investments.",
     icon: Shield,
   },
   {
-    name: 'Educational Resources',
-    description: 'Access to educational materials and workshops to enhance your investment knowledge.',
+    name: "Educational Resources",
+    description:
+      "Access to educational materials and workshops to enhance your investment knowledge.",
     icon: BookOpen,
   },
   {
-    name: 'One-on-One Consultation',
-    description: 'Personal consultation sessions to discuss your specific investment needs and goals.',
+    name: "One-on-One Consultation",
+    description:
+      "Personal consultation sessions to discuss your specific investment needs and goals.",
     icon: Users,
   },
 ];
 
-export default function Services({ children }: ComponentProps): React.ReactNode {
+export default function Services(): React.ReactNode {
   return (
     <section id="services" className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-blue-600">Services</h2>
+          <h2 className="text-base font-semibold leading-7 text-blue-600">
+            Services
+          </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Comprehensive Financial Services
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            We offer a wide range of financial services designed to help you succeed in both traditional and cryptocurrency markets.
+            We offer a wide range of financial services designed to help you
+            succeed in both traditional and cryptocurrency markets.
           </p>
         </div>
 
@@ -54,7 +70,10 @@ export default function Services({ children }: ComponentProps): React.ReactNode 
             {services.map((service) => (
               <div key={service.name} className="flex flex-col">
                 <div className="flex items-center gap-x-3">
-                  <service.icon className="h-7 w-7 flex-none text-blue-600" aria-hidden="true" />
+                  <service.icon
+                    className="h-7 w-7 flex-none text-blue-600"
+                    aria-hidden="true"
+                  />
                   <h3 className="flex-auto text-xl font-semibold leading-7 text-gray-900">
                     {service.name}
                   </h3>
