@@ -87,35 +87,42 @@ export default function Blog(): React.ReactNode {
               key={post.id}
               className="relative isolate flex flex-col justify-between overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
             >
-              <Image
-                src={post.image}
-                alt={post.title}
-                fill
-                className="absolute inset-0 -z-10 object-cover"
-              />
-              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-              <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-
-              <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                <div className="flex items-center gap-x-2">
-                  <Calendar className="h-4 w-4" />
-                  {post.date}
-                </div>
-                <div className="mx-2">·</div>
-                <div className="flex items-center gap-x-2">
-                  <Clock className="h-4 w-4" />
-                  {post.readTime}
-                </div>
+              <div className="absolute inset-0 -z-10">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                  loading={post.id === 1 ? "eager" : "lazy"}
+                  quality={85}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
               </div>
-              <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-                <Link href="#">
-                  <span className="absolute inset-0" />
-                  {post.title}
-                </Link>
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-gray-300">
-                {post.description}
-              </p>
+
+              <div className="relative">
+                <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                  <div className="flex items-center gap-x-2">
+                    <Calendar className="h-4 w-4" />
+                    {post.date}
+                  </div>
+                  <div className="mx-2">·</div>
+                  <div className="flex items-center gap-x-2">
+                    <Clock className="h-4 w-4" />
+                    {post.readTime}
+                  </div>
+                </div>
+                <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
+                  <Link href="#">
+                    <span className="absolute inset-0" />
+                    {post.title}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-gray-300">
+                  {post.description}
+                </p>
+              </div>
             </article>
           ))}
         </div>
