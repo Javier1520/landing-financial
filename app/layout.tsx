@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Financial Advisor | Expert Market & Crypto Analysis",
-  description: "Get expert financial advice on markets and cryptocurrencies. Professional guidance for your investment decisions.",
+  description:
+    "Get expert financial advice on markets and cryptocurrencies. Professional guidance for your investment decisions.",
 };
 
 export default function RootLayout({
@@ -15,10 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-white`}>
-        {children}
-      </body>
+    <html lang="en" className="!scroll-smooth">
+      <body className={`${inter.className} bg-white`}>{children}</body>
     </html>
   );
 }

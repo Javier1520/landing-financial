@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { NavigationItem } from "../types";
 
-const navigation = [
+const navigation: NavigationItem[] = [
   { name: "Home", href: "/" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
@@ -13,7 +14,7 @@ const navigation = [
   { name: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar(): React.ReactNode {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
