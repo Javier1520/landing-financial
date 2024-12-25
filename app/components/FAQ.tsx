@@ -72,41 +72,44 @@ export default function FAQ(): React.ReactNode {
                 </span>
                 <span className="ml-6 flex h-7 items-center">
                   {openIndex === index ? (
-                    <ChevronUp className="h-6 w-6 text-blue-600" />
+                    <ChevronUp className="h-6 w-6 text-blue-600 transition-transform duration-300" />
                   ) : (
-                    <ChevronDown className="h-6 w-6 text-blue-600" />
+                    <ChevronDown className="h-6 w-6 text-blue-600 transition-transform duration-300" />
                   )}
                 </span>
               </button>
-              {openIndex === index && (
-                <div className="mt-2 pr-12">
-                  <p className="text-base leading-7 text-gray-600">
-                    {faq.answer}
-                  </p>
-                  {index === 2 && ( // Special case for pricing FAQ
-                    <div className="mt-4">
-                      <a
-                        href="#contact"
-                        className="text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500"
-                      >
-                        Contact us for pricing details{" "}
-                        <span aria-hidden="true">→</span>
-                      </a>
-                    </div>
-                  )}
-                  {index === 4 && ( // Special case for getting started FAQ
-                    <div className="mt-4">
-                      <a
-                        href="#contact"
-                        className="text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500"
-                      >
-                        Schedule a consultation{" "}
-                        <span aria-hidden="true">→</span>
-                      </a>
-                    </div>
-                  )}
-                </div>
-              )}
+              <div
+                className={`mt-2 pr-12 overflow-hidden transition-all duration-300 ease-in-out ${
+                  openIndex === index
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <p className="text-base leading-7 text-gray-600">
+                  {faq.answer}
+                </p>
+                {index === 2 && ( // Special case for pricing FAQ
+                  <div className="mt-4">
+                    <a
+                      href="#contact"
+                      className="text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500"
+                    >
+                      Contact us for pricing details{" "}
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                )}
+                {index === 4 && ( // Special case for getting started FAQ
+                  <div className="mt-4">
+                    <a
+                      href="#contact"
+                      className="text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500"
+                    >
+                      Schedule a consultation <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
